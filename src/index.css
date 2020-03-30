@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.app-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.single-venue {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 60px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.available {
+  color: #c7c7c7;
+}
+
+.not-available {
+  color: #f54949;
+}
+
+.best-seat {
+  color: #00d4cd;
+}
