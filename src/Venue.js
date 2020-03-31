@@ -14,21 +14,45 @@ export default class Venue extends React.Component {
     }
   }
 
+  genCharArray = (charA, charZ) => {
+    var arr = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+    for (; i <= j; ++i) {
+        arr.push(String.fromCharCode(i));
+    }
+    return arr;
+  }
+
+  getStatus(child_id, best_seat) {
+    let iconClass = 'seat fa fa-user '
+    // Seat availability
+    if (this.props.available_seats.includes(child_id)) {
+      iconClass += 'available '
+    } else {
+      iconClass += 'not-available '
+    }
+
+    // Ask for Best Seat
+    if(child_id == best_seat.id) {
+      iconClass += 'best-seat'
+    }
+
+    return iconClass;
+  }
+
   createTable = (rows, columns, best_seat) => {
     let table = []
+    let rows_array = this.genCharArray('a', 'z');
+
     // Outer loop to create parent
     for (let i = 1; i <= rows; i++) {
       let children = []
       //Inner loop to create children
       for (let j = 1; j <= columns; j++) {
+        let child_id = `${rows_array[i - 1]}${j}`
         children.push(
-        <td id={`seat_${i}_${j}`}>
-          {( (i == best_seat.row && j == best_seat.column)
-            ?
-            <i className="fa fa-user best-seat"></i>
-            :
-            <i className="fa fa-user available"></i>
-          )}
+        <td id={`seat_${child_id}`} className="tooltip">
+          <i className={ this.getStatus(child_id, best_seat)}></i>
+          <span class="tooltiptext">{child_id}</span>
         </td>
         )
       }

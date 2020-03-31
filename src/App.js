@@ -30,6 +30,7 @@ class App extends React.Component {
           const data = venue.attributes
           return(<Venue rows={data.rows}
                         columns={data.columns}
+                        available_seats={data.available_seats}
                         id={venue.id} />)}
         )}
       </div>
