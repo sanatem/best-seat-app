@@ -1,5 +1,6 @@
 # Best Seat App
 
+![](public/preview.png)
 
 ## Available Scripts
 
