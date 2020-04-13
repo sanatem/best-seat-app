@@ -2,6 +2,9 @@
 
 ![](public/preview.png)
 
+## NOTE
+For running this experiment you'll need to run first the [API](https://github.com/sanatem/best-seat-api)
+
 ## Available Scripts
 
 In the project directory, you can run:
